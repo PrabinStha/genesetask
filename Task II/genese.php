@@ -89,4 +89,4 @@ function puma_api_master_get_products($request) {
 
 
 // Test the API Endpoint
-http://yoursite.com/wp-json/puma-api-master/v1/products?category=your-category&author_id=
+http://your-site.com/wp-json/puma-api-master/v1/products?category=your-category&author_id=123&page=1&per_page=10
