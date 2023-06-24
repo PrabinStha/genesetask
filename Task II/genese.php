@@ -25,14 +25,10 @@ function puma_api_master_register_endpoint() {
 // Callback function to retrieve products
 function puma_api_master_get_products($request) {
 	// Retrieve parameters from the request
-	$category  = $request->get_param('category');
-	$author_id = $request->get_param('author_id');
-	$page      = $request->get_param('page');
-	$per_page  = $request->get_param('per_page');
-
-	// Set default values for page and per_page if not provided
-	$page     = !empty($page) ? absint($page) : 1;
-	$per_page = !empty($per_page) ? absint($per_page) : 10;
+	$category  = isset($request['category']) ? sanitize_text_field($request['category']) : '';
+	$author_id = isset($request['author_id']) ? absint($request['author_id']) : '';
+	$page      = isset($request['page']) ? absint($request['page']) : 1;
+	$per_page  = isset($request['per_page']) ? absint($request['per_page']) : 10;
 
 	// Query arguments to retrieve products
 	$query_args = array(
