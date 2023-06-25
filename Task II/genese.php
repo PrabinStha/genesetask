@@ -67,8 +67,10 @@ function puma_api_master_get_products($request) {
 			$products->the_post();
 
 			$product_data = array(
-				'id'    => get_the_ID(),
-				'title' => get_the_title(),
+				'id'       => get_the_ID(),
+				'title'    => get_the_title(),
+				'author_id' => get_the_author_meta('ID'),
+				'category' => $category,
 				// Add more product data as needed
 			);
 
